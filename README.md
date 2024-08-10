@@ -14,6 +14,6 @@ AWS CLI and  AWS CDK pre installed.
 
 # References:
 * [Debian Docker Image](https://hub.docker.com/_/debian)
-* [Vs Code Container](
+* [VSCode Container](
 https://code.visualstudio.com/docs/devcontainers/containers)
 * [Amazon Linux](https://docs.aws.amazon.com/linux/)
