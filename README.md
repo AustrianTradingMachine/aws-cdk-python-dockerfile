@@ -11,3 +11,9 @@ pre installed python packages:
 *constructs
 *boto3
 *pytest
+
+References:
+[Debian Docker Image](https://hub.docker.com/_/debian)
+[Vs Code Container](
+https://code.visualstudio.com/docs/devcontainers/containers)
+[Amazon Linux](https://docs.aws.amazon.com/linux/)
