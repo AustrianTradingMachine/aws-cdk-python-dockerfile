@@ -138,7 +138,7 @@ RUN pip install --no-cache-dir -r requirements_dev.txt
 ENV PYTHONUNBUFFERED=1
 #
 #------------------------------------------------
-    # Create a non-root user
+# Create a non-root user
 #------------------------------------------------
 #
 # Create a non-root user
