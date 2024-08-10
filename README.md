@@ -51,16 +51,11 @@ This command runs the container in interactive mode (`-it`), removes it after ex
 
 You can modify the `requirements.txt` and `requirements_dev.txt` files to include additional Python packages. The Dockerfile is set up to automatically install these dependencies when building the image.
 
-# Pre installed python packages:
+### Default included packages:
 * aws-cdk-lib
 * constructs
 * boto3
 * pytest
-
-### Environment Variables
-
-- `PYTHONUNBUFFERED=1`: Ensures Python output is sent directly to the terminal without buffering.
-- `DEBIAN_FRONTEND=dialog`: Restores interactive apt prompts after the container is built.
 
 ## Troubleshooting
 
