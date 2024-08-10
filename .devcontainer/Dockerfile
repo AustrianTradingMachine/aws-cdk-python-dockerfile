@@ -34,6 +34,7 @@ ARG DEBIAN_FRONTEND noninteractive
 #------------------------------------------------
 #
 # Update the repository sources list
+# Clean up the apt-get cache
 RUN apt-get update --fix-missing && \
     apt-get install -y -q --no-install-recommends \
         software-properties-common \
@@ -43,10 +44,9 @@ RUN apt-get update --fix-missing && \
         sudo \
         curl \
         unzip \
-        git
-#
-# Cleans up the apt cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+        git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 #
 #------------------------------------------------
 # Install NPM
@@ -57,16 +57,13 @@ ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION v20.16.0
 #
 # Create nvm directory
-RUN mkdir -p $NVM_DIR
-#
 # Install nvm
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-#
-# Load nvm and install Node.js
-RUN . $NVM_DIR/nvm.sh && \
-      nvm install $NODE_VERSION && \
-      nvm use $NODE_VERSION && \
-      nvm alias default $NODE_VERSION
+RUN mkdir -p $NVM_DIR && \
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
+    . $NVM_DIR/nvm.sh && \
+    nvm install $NODE_VERSION && \
+    nvm use $NODE_VERSION && \
+    nvm alias default $NODE_VERSION
 #
 # Add nvm.sh to .bashrc
 ENV NODE_PATH $NVM_DIR/$NODE_VERSION/lib/node_modules
@@ -83,11 +80,10 @@ RUN if [ "$TARGETARCH" = "amd64" ]; then \
     elif [ "$TARGETARCH" = "arm64" ]; then \
         echo "Installing packages for arm64" && \
         curl https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip -o awscliv2.zip; \
-    fi
-#
-RUN unzip awscliv2.zip
-RUN ./aws/install
-RUN rm -rf awscliv2.zip aws
+    fi && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -rf awscliv2.zip aws
 #
 # Install AWS CDK
 RUN npm install -g aws-cdk
@@ -97,6 +93,7 @@ RUN npm install -g aws-cdk
 #------------------------------------------------
 #
 # Install Python 3.9 with pip, venv, dev, setuptools, wheel
+# Clean up the apt-get cache
 RUN apt-get update --fix-missing && \
     apt-get install -y -q --no-install-recommends \
         python3 \
@@ -104,10 +101,9 @@ RUN apt-get update --fix-missing && \
         python3-venv \
         python3-dev \
         python3-setuptools \
-        python3-wheel
-#
-# Cleans up the apt cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+        python3-wheel && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 #
 #------------------------------------------------
 # Set the working directory
@@ -143,10 +139,9 @@ ENV PYTHONUNBUFFERED=1
 #------------------------------------------------
 #
 # Create a non-root user
-RUN groupadd -r developer && useradd -r -g developer -ms /bin/bash developer
-#
-RUN mkdir -p /etc/sudoers.d
-RUN echo "developer ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/developer
+RUN groupadd -r developer && useradd -r -g developer -ms /bin/bash developer && \
+    mkdir -p /etc/sudoers.d && \
+    echo "developer ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/developer
 #
 # Switch to the new user
 USER developer
