@@ -10,7 +10,7 @@ This repository contains a Dockerfile for setting up a development environment f
 - **AWS CDK**: Globally installed for infrastructure as code using Python and AWS.
 - **Python Packages**: Python development packages such as pip, venv, setuptools, and wheel are pre-installed.
 - **Non-root User**: The image runs as a non-root user (`developer`) for better security.
-- **Microsoft Dec Container**: Prepared for usage in the Microsoft Dev Container in Visual Studio Code.
+- **Microsoft Dec Container**: Prepared for usage in the Microsoft DevContainer in Visual Studio Code.
   
 
 ## Getting Started
@@ -19,6 +19,7 @@ This repository contains a Dockerfile for setting up a development environment f
 
 - Docker installed on your local machine.
 - A copy of this repository.
+- DevContainer Extension installed (If you use the Dockerfile in DevContainer)
 
 ### Building the Docker Image
 
@@ -30,7 +31,7 @@ docker build -t aws-cdk-python3.9 .
 
 This command will create a Docker image named `aws-cdk-python3.9`.
 
-### Running the Docker Container
+### Running the Docker Container direct
 
 Once the image is built, you can start a container using:
 
@@ -39,6 +40,14 @@ docker run -it --rm -v $(pwd):/workspaces aws-cdk-python3.9
 ```
 
 This command runs the container in interactive mode (`-it`), removes it after exit (`--rm`), and mounts the current directory into the container's `/workspaces` directory.
+
+### Running the Docker Container as Dev Container
+
+Install the "Dev Containers" extension from the VS Code marketplace.
+
+Once the container is up, you can start coding in your fully configured environment.
+
+The project directory on your host machine/github repository will be automatically mounted inside the container, so all your changes are saved locally.
 
 ### Using the Container
 
