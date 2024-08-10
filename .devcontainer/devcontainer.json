@@ -1,0 +1,8 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+{
+	"name": "AWS CDK Python 3.9",
+	"build": { 
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	}
+}
