@@ -97,11 +97,12 @@ RUN npm install -g aws-cdk
 RUN apt-get update --fix-missing && \
     apt-get install -y -q --no-install-recommends \
         python3 \
-        python3-pip \
-        python3-venv \
         python3-dev \
-        python3-setuptools \
-        python3-wheel && \
+        python3-venv \
+        python3-pip \
+        python3-wheel \
+        python3-setuptools && \
+        
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 #
@@ -134,8 +135,18 @@ RUN pip install --no-cache-dir -r requirements_dev.txt || true
 # make sure all messages always reach console
 ENV PYTHONUNBUFFERED=1
 #
+#------------------------------------------------
+# Set environment variables
+#------------------------------------------------
+#
+# Set the language environment variable
+ENV LANG=C.UTF-8
+#
 # Add the workspace directory to the PYTHONPATH
 ENV PYTHONPATH="${PYTHONPATH}:/workspaces"
+#
+# Add python bin directory to PATH
+ENV PATH="${PATH}:/usr/bin/python3.9"
 #
 #------------------------------------------------
 # Create a non-root user
