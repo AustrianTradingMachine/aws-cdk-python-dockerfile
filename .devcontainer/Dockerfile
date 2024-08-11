@@ -1,5 +1,5 @@
 # Dockerfile for AWS CDK Python 3.9 development environment
-# Amazon Lionux 2023 standard python version is 3.9
+# Amazon Linux 2023 standard python version is 3.9
 # https://docs.aws.amazon.com/linux/al2023/ug/python.html
 #
 #------------------------------------------------
