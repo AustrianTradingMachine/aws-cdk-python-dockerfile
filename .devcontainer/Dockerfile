@@ -131,9 +131,6 @@ RUN pip install --no-cache-dir -r requirements.txt || true
 # Install from requirements-dev.txt
 RUN pip install --no-cache-dir -r requirements_dev.txt || true
 #
-# make sure all messages always reach console
-ENV PYTHONUNBUFFERED=1
-#
 #------------------------------------------------
 # Set environment variables
 #------------------------------------------------
@@ -143,6 +140,9 @@ ENV LANG=C.UTF-8
 #
 # Add the workspace directory to the PYTHONPATH
 ENV PYTHONPATH="${PYTHONPATH}:/workspaces"
+#
+# make sure all messages always reach console
+ENV PYTHONUNBUFFERED=1
 #
 #------------------------------------------------
 # Create a non-root user
