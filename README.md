@@ -43,7 +43,7 @@ docker run -it --rm -v $(pwd):/workspaces aws-cdk-python3.9
 
 This command runs the container in interactive mode (`-it`), removes it after exit (`--rm`), and mounts the current directory into the container's `/workspaces` directory.
 
-### Usage in Dev Container
+### Usage in DevContainer
 
 Install the Microsoft DevContainers extension from the VS Code marketplace.
 
