@@ -134,6 +134,9 @@ RUN pip install --no-cache-dir -r requirements_dev.txt || true
 # make sure all messages always reach console
 ENV PYTHONUNBUFFERED=1
 #
+# Add the workspace directory to the PYTHONPATH
+ENV PYTHONPATH="${PYTHONPATH}:/workspaces"
+#
 #------------------------------------------------
 # Create a non-root user
 #------------------------------------------------
@@ -145,10 +148,3 @@ RUN groupadd -r developer && useradd -r -g developer -ms /bin/bash developer && 
 #
 # Switch to the new user
 USER developer
-#
-#------------------------------------------------
-# 
-#------------------------------------------------
-#
-# Switch back to dialog for any ad-hoc use of apt-get
-ENV DEBIAN_FRONTEND=dialog
