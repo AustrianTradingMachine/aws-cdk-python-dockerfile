@@ -10,7 +10,7 @@ This repository contains a Dockerfile for setting up a development environment f
 - **AWS CDK**: Globally installed for infrastructure as code using Python and AWS.
 - **Python Packages**: Python development packages such as pip, venv, setuptools, and wheel are pre-installed.
 - **Non-root User**: The image runs as a non-root user (`developer`) for better security.
-- **Microsoft Dev Container**: Prepared for usage in the Microsoft DevContainer in Visual Studio Code.
+- **Microsoft DevContainer**: Prepared for usage in the Microsoft DevContainer in Visual Studio Code.
   
 
 ## Getting Started
