@@ -20,8 +20,10 @@ This repository contains a Dockerfile for setting up a development environment f
 - Docker installed on your local machine.
 - A copy of this repository.
 - DevContainer Extension installed (If you use the Dockerfile in DevContainer)
+- 
+### Direct usage
 
-### Building the Docker Image
+#### Building the Docker Image
 
 To build the Docker image, navigate to the directory containing the Dockerfile and run the following command:
 
@@ -31,7 +33,7 @@ docker build -t aws-cdk-python3.9 .
 
 This command will create a Docker image named `aws-cdk-python3.9`.
 
-### Running the Docker Container direct
+#### Running the Docker Container
 
 Once the image is built, you can start a container using:
 
@@ -41,13 +43,35 @@ docker run -it --rm -v $(pwd):/workspaces aws-cdk-python3.9
 
 This command runs the container in interactive mode (`-it`), removes it after exit (`--rm`), and mounts the current directory into the container's `/workspaces` directory.
 
-### Running the Docker Container as Dev Container
+### Usage in Dev Container
 
 Install the "Dev Containers" extension from the VS Code marketplace.
 
+Clone this GitHub repository
+
+Press Ctrl+Shift+P (Windows/Linux) or Cmd+Shift+P (macOS) to open the Command Palette.
+
+#### Shared Volume with Host
+
+Make a local clone of the Github Repository.
+
+Enter the command "Dev Containers: Reopen in Container" in the VSCode Command Palette.
+
+VSCode will open a new window in the Container. You see the new active container environment on the left lower corner.
+
 Once the container is up, you can start coding in your fully configured environment.
 
-The project directory on your host machine/github repository will be automatically mounted inside the container, so all your changes are saved locally.
+The project directory on your Host will be automatically mounted inside the container, so all your changes are saved locally.
+
+#### Isolated Volume
+
+Enter the command "Dev Containers: Reopen in Container" in the VSCode Command Palette.
+
+VSCode will open a new window in the Container. You see the new active container environment on the left lower corner.
+
+Once the container is up, you can start coding in your fully configured environment.
+
+The project directory of your GitHub repository will be automatically mounted inside the container, so all your changes are saved locally.
 
 ### Using the Container
 
