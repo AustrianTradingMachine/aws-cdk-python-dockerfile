@@ -101,8 +101,7 @@ RUN apt-get update --fix-missing && \
         python3-venv \
         python3-pip \
         python3-wheel \
-        python3-setuptools && \
-        
+        python3-setuptools && \ 
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 #
@@ -144,9 +143,6 @@ ENV LANG=C.UTF-8
 #
 # Add the workspace directory to the PYTHONPATH
 ENV PYTHONPATH="${PYTHONPATH}:/workspaces"
-#
-# Add python bin directory to PATH
-ENV PATH="${PATH}:/usr/bin/python3.9"
 #
 #------------------------------------------------
 # Create a non-root user
