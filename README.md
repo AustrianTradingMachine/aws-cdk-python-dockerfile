@@ -53,7 +53,7 @@ Make a local clone of your Github Repository.
 
 Press Ctrl+Shift+P (Windows/Linux) or Cmd+Shift+P (macOS) to open the Command Palette.
 
-Enter the command "Dev Containers: Reopen in Container" in the VSCode Command Palette.
+Enter the command "Dev Containers: Open Folder in Container" in the VSCode Command Palette.
 
 VSCode will open a new window in the Container. You see the new active container environment on the left lower corner.
 
@@ -63,7 +63,7 @@ The project directory on your Host will be automatically mounted inside the cont
 
 #### Isolated Volume
 
-Enter the command "Dev Containers: Reopen in Container in Volume" in the VSCode Command Palette.
+Enter the command "Dev Containers: Clone Repository in Container Volume" in the VSCode Command Palette.
 
 Select the GitHub Repository and the branch you want to load into the Container.
 
