@@ -19,8 +19,8 @@ This repository contains a Dockerfile for setting up a development environment f
 
 - Docker installed on your local machine.
 - A copy of this repository.
-- DevContainer Extension installed (If you use the Dockerfile in DevContainer)
-- 
+- DevContainer Extension installed (If you use the Dockerfile in Microsoft DevContainer)
+
 ### Direct usage
 
 #### Building the Docker Image
