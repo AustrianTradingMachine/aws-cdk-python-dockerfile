@@ -53,8 +53,8 @@ RUN apt-get update --fix-missing && \
 #------------------------------------------------
 #
 # nvm environment variables
-ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION v20.16.0
+ENV NVM_DIR=/usr/local/nvm
+ENV NODE_VERSION=v20.16.0
 #
 # Create nvm directory
 # Install nvm
@@ -66,8 +66,8 @@ RUN mkdir -p $NVM_DIR && \
     nvm alias default $NODE_VERSION
 #
 # Add nvm.sh to .bashrc
-ENV NODE_PATH $NVM_DIR/$NODE_VERSION/lib/node_modules
-ENV PATH $NVM_DIR/versions/node/$NODE_VERSION/bin:$PATH
+ENV NODE_PATH=$NVM_DIR/$NODE_VERSION/lib/node_modules
+ENV PATH=$NVM_DIR/versions/node/$NODE_VERSION/bin:$PATH
 #
 #------------------------------------------------
 # Install AWS CLI and AWS CDK
